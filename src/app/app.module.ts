@@ -12,12 +12,15 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MenuComponent } from './menu/menu.component';
 import { SearchComponent } from './search/search.component';
+import { AppRoutingModule } from './app-routing.module';
+import { LoginFormComponent } from './login-form/login-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
-    SearchComponent
+    SearchComponent,
+    LoginFormComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +31,8 @@ import { SearchComponent } from './search/search.component';
     MatMenuModule,
     MatDividerModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
