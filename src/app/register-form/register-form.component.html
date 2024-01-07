@@ -1,0 +1,27 @@
+<div class="login-container">
+    <mat-card class="login-card">
+        <mat-card-header>
+            <mat-card-title>Register</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <form class="login-form" [formGroup]="registerForm" (ngSubmit)="register()">
+                <mat-form-field>
+                    <mat-label>Email</mat-label>
+                    <input type="email" formControlName="email" matInput placeholder="Ex. pat@example.com" required>
+                    <mat-error>Please enter a valid email address</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Password</mat-label>
+                    <input matInput type="password" formControlName="password" placeholder="Password" required>
+                    <mat-error>Password is required</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Repeat password</mat-label>
+                    <input matInput type="password" formControlName="repeatPassword" placeholder="Password" required>
+                </mat-form-field>
+                <button mat-raised-button color="primary">Register</button>
+                <mat-error *ngIf="!passwordMatcher">Passwords do not match</mat-error>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>
