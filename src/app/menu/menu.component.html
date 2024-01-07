@@ -1,0 +1,38 @@
+<mat-toolbar>
+    <span>SkyArchive</span>
+    <span class="spacer"></span>
+    <div class="buttons-wrapper">
+        <button class="search-btn" mat-mini-fab color="accent"
+        (click)="toggleSearch()"
+        aria-label="Example icon button with a bookmark icon">
+            <mat-icon>search</mat-icon>
+        </button>
+        <button class="login-btn" [matMenuTriggerFor]="login" mat-mini-fab color="primary"
+            aria-label="Example icon button with a bookmark icon">
+            <mat-icon>person</mat-icon>
+        </button>
+        <button mat-icon-button [matMenuTriggerFor]="socialMenu" class="example-icon"
+            aria-label="Example icon-button with share icon">
+            <mat-icon>share</mat-icon>
+        </button>
+    </div>
+    <mat-menu #login="matMenu">
+        <button mat-menu-item href="https://github.com/Fifoll">
+            <span>Login</span>
+        </button>
+        <button mat-menu-item href="https://www.linkedin.com/in/filip-k%C4%85kol-7a3303208/">
+            <span>Register</span>
+        </button>
+    </mat-menu>
+    <mat-menu #socialMenu="matMenu">
+        <a mat-menu-item href="https://github.com/Fifoll">
+            <mat-icon>people</mat-icon>
+            <span>Project github</span>
+        </a>
+        <a mat-menu-item href="https://www.linkedin.com/in/filip-k%C4%85kol-7a3303208/">
+            <mat-icon>linkedin</mat-icon>
+            <span>Linkedin profile</span>
+        </a>
+    </mat-menu>
+</mat-toolbar>
+<app-search (closeSearchModalEmitter)="toggleSearch()" *ngIf="searchFlag"></app-search>

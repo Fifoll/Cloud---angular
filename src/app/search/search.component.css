@@ -1,0 +1,17 @@
+.search__modal, .search__wrapper {
+    position: fixed;
+}
+.search__modal { 
+    left: 0;
+    top: 0;
+    background-color: #00000050;
+    width: 100vw;
+    height: 100vh;
+}
+.search__wrapper {
+    left: 50%;
+    top: 20%;
+    transform: translate(-50%,0);
+    display: flex;
+    gap: .8rem;
+}

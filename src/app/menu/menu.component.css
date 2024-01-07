@@ -1,0 +1,18 @@
+.spacer {
+  flex: 1 1 auto;
+}
+.search {
+  display: none;
+}
+.buttons-wrapper {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .search {
+    margin-left: 2.4rem;
+    display: block;
+  }
+}
