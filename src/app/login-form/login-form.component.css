@@ -1,0 +1,14 @@
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+@media (min-width: 768px) {
+    .login-card {
+        width: 42rem;
+    }
+    .login-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+}
