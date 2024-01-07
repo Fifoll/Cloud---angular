@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login-form',
@@ -10,10 +11,12 @@ import { Router } from '@angular/router';
 })
 export class LoginFormComponent implements OnInit {
 
-  constructor(private userService: UserService, private router: Router) { }
+  incorrectData = false;
+
+  constructor(private userService: UserService, private router: Router, private authService: AuthService) { }
 
   ngOnInit(): void {
-    if (localStorage.getItem('authToken')) {
+    if (this.authService.isLoggedIn()) {
       this.router.navigate(['/']);
     }
   }
@@ -32,13 +35,16 @@ export class LoginFormComponent implements OnInit {
     this.userService.login(user).subscribe({
       next: (data: any) => {
         if (data.status === 200) {
-          localStorage.setItem('authToken', data.data);
+          this.authService.setToken(data.data);
           this.router.navigate(['/']);
         }
       },
       error: (err) => {
         if(err.status === 401) {
-          console.log("auth failed");
+          this.incorrectData = true;
+        }
+        else{ 
+          console.error(err);
         }
       }
     })

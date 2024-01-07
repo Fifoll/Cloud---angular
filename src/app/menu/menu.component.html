@@ -2,26 +2,25 @@
     <span>SkyArchive</span>
     <span class="spacer"></span>
     <div class="buttons-wrapper">
-        <button class="search-btn" mat-mini-fab color="accent"
-        (click)="toggleSearch()"
-        aria-label="Example icon button with a bookmark icon">
+        <button class="search-btn" mat-mini-fab color="accent" (click)="toggleSearch()" *ngIf="isLoggedIn()">
             <mat-icon>search</mat-icon>
         </button>
-        <button class="login-btn" [matMenuTriggerFor]="login" mat-mini-fab color="primary"
-            aria-label="Example icon button with a bookmark icon">
+        <button class="login-btn" [matMenuTriggerFor]="login" mat-mini-fab color="primary">
             <mat-icon>person</mat-icon>
         </button>
-        <button mat-icon-button [matMenuTriggerFor]="socialMenu" class="example-icon"
-            aria-label="Example icon-button with share icon">
+        <button mat-icon-button [matMenuTriggerFor]="socialMenu" class="example-icon">
             <mat-icon>share</mat-icon>
         </button>
     </div>
     <mat-menu #login="matMenu">
-        <button mat-menu-item routerLink="/login">
+        <button mat-menu-item routerLink="/login" *ngIf="!isLoggedIn()">
             <span>Login</span>
         </button>
-        <button mat-menu-item routerLink="/register">
+        <button mat-menu-item routerLink="/register" *ngIf="!isLoggedIn()">
             <span>Register</span>
+        </button>
+        <button mat-menu-item (click)="logout()" *ngIf="isLoggedIn()">
+            <span>Logout</span>
         </button>
     </mat-menu>
     <mat-menu #socialMenu="matMenu">

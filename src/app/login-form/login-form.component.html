@@ -16,6 +16,7 @@
                     <mat-error>Password is required</mat-error>
                 </mat-form-field>
                 <button mat-raised-button color="primary">Login</button>
+                <mat-error *ngIf="incorrectData">Email or password are incorrect</mat-error>
             </form>
         </mat-card-content>
     </mat-card>
