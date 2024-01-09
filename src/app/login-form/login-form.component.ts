@@ -11,7 +11,8 @@ import { AuthService } from '../auth.service';
 })
 export class LoginFormComponent implements OnInit {
 
-  incorrectData = false;
+  incorrectData:boolean = false;
+  hide:boolean = true;
 
   constructor(private userService: UserService, private router: Router, private authService: AuthService) { }
 
