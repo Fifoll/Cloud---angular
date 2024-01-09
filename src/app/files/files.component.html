@@ -1,4 +1,7 @@
 <app-panel heading="Tools" icon="settings">
 </app-panel>
 <app-panel heading="Your files" icon="cloud">
+    <div *ngFor="let file of files">
+        <h1>{{file.name}}</h1>
+    </div>
 </app-panel>
