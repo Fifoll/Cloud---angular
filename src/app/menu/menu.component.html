@@ -1,5 +1,5 @@
 <mat-toolbar>
-    <span>SkyArchive</span>
+    <span class="logo" routerLink="/">SkyArchive</span>
     <span class="spacer"></span>
     <div class="buttons-wrapper">
         <button class="search-btn" mat-mini-fab color="accent" (click)="toggleSearch()" *ngIf="isLoggedIn()">
@@ -19,7 +19,7 @@
         <button mat-menu-item routerLink="/register" *ngIf="!isLoggedIn()">
             <span>Register</span>
         </button>
-        <button mat-menu-item (click)="logout()" *ngIf="isLoggedIn()">
+        <button mat-menu-item (click)="logout()" routerLink="/login" *ngIf="isLoggedIn()">
             <span>Logout</span>
         </button>
     </mat-menu>

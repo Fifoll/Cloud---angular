@@ -1,21 +1,29 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { UserService } from '../user.service';
 import { DialogComponent } from '../dialog/dialog.component';
+import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-register-form',
   templateUrl: './register-form.component.html',
   styleUrls: ['./register-form.component.css']
 })
-export class RegisterFormComponent {
+export class RegisterFormComponent implements OnInit{
 
-  constructor(private userService: UserService, public dialog: MatDialog) { }
+  constructor(private userService: UserService, public dialog: MatDialog, private router: Router, private authService: AuthService) { }
 
-  passwordMatcher = true;
-  userExists = false;
-  hide = true;
+  ngOnInit(): void {
+    if (this.authService.isLoggedIn()) {
+      this.router.navigate(['/']);
+    }
+  }
+
+  passwordMatcher:boolean = true;
+  userExists:boolean = false;
+  hide:boolean = true;
 
   registerForm = new FormGroup({
     email: new FormControl('', { nonNullable: true, validators: [Validators.required, Validators.email] }),
