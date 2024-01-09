@@ -20,6 +20,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DialogComponent } from './dialog/dialog.component';
+import { HomeComponent } from './home/home.component';
+import { PanelComponent } from './panel/panel.component';
+import { FilesComponent } from './files/files.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { DialogComponent } from './dialog/dialog.component';
     SearchComponent,
     LoginFormComponent,
     RegisterFormComponent,
-    DialogComponent
+    DialogComponent,
+    HomeComponent,
+    PanelComponent,
+    FilesComponent
   ],
   imports: [
     BrowserModule,
