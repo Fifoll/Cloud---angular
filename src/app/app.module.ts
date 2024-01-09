@@ -18,6 +18,8 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterFormComponent } from './register-form/register-form.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DialogComponent } from './dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { RegisterFormComponent } from './register-form/register-form.component';
     MenuComponent,
     SearchComponent,
     LoginFormComponent,
-    RegisterFormComponent
+    RegisterFormComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +43,8 @@ import { RegisterFormComponent } from './register-form/register-form.component';
     AppRoutingModule,
     MatCardModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

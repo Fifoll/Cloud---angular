@@ -21,6 +21,7 @@
                 </mat-form-field>
                 <button mat-raised-button color="primary">Register</button>
                 <mat-error *ngIf="!passwordMatcher">Passwords do not match</mat-error>
+                <mat-error *ngIf="userExists">User with this email already exists in database</mat-error>
             </form>
         </mat-card-content>
     </mat-card>
