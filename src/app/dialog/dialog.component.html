@@ -1,5 +1,5 @@
 <h1 mat-dialog-title *ngIf="data.heading">{{data.heading}}</h1>
-<div mat-dialog-content *ngIf="data.body">{{data.body}}</div>
+<div mat-dialog-content *ngIf="data.body" [innerHTML]="getHTML(data.body)"></div>
 <div class="buttons">
   <div mat-dialog-actions *ngFor="let button of data.button">
     <button *ngIf="(button === 'close')" mat-stroked-button (click)="close()">Close</button>
