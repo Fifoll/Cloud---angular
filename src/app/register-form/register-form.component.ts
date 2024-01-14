@@ -11,7 +11,7 @@ import { AuthService } from '../auth.service';
   templateUrl: './register-form.component.html',
   styleUrls: ['./register-form.component.css']
 })
-export class RegisterFormComponent implements OnInit{
+export class RegisterFormComponent implements OnInit {
 
   constructor(private userService: UserService, public dialog: MatDialog, private router: Router, private authService: AuthService) { }
 
@@ -21,9 +21,9 @@ export class RegisterFormComponent implements OnInit{
     }
   }
 
-  passwordMatcher:boolean = true;
-  userExists:boolean = false;
-  hide:boolean = true;
+  passwordMatcher: boolean = true;
+  userExists: boolean = false;
+  hide: boolean = true;
 
   registerForm = new FormGroup({
     email: new FormControl('', { nonNullable: true, validators: [Validators.required, Validators.email] }),
@@ -60,8 +60,8 @@ export class RegisterFormComponent implements OnInit{
       data: { 
       heading: 'Success!', 
       body: 'You successfully registered. Please log in to enjoy application',
-      button: 'login'
-    },
+        button: ['login']
+      },
     });
   }
 
