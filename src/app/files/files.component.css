@@ -1,0 +1,32 @@
+.files {
+    padding-top: 1.6rem;
+    display: flex;
+    gap: 2.4rem;
+    flex-wrap: wrap;
+}
+.file {
+    width: 16rem;
+    background-color: #ebebeb50;
+    transition: .3s;
+}
+.file:hover {
+    background-color: #ebebeb;
+}
+.file__header {
+    justify-content: space-between;
+    align-items: center;
+}
+.file__button {
+    display: block;
+}
+.file__img {
+    width: 100%;
+    height: 10rem;
+    border-radius: .4rem;
+    object-fit: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3.2rem;
+    background-color: #fff;
+}

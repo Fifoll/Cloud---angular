@@ -23,6 +23,7 @@ import { DialogComponent } from './dialog/dialog.component';
 import { HomeComponent } from './home/home.component';
 import { PanelComponent } from './panel/panel.component';
 import { FilesComponent } from './files/files.component';
+import { TruncatePipe } from './truncate.pipe';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { FilesComponent } from './files/files.component';
     DialogComponent,
     HomeComponent,
     PanelComponent,
-    FilesComponent
+    FilesComponent,
+    TruncatePipe
   ],
   imports: [
     BrowserModule,
