@@ -13,7 +13,12 @@ export class DialogComponent {
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
   ) {}
 
-  close(): void {
-    this.dialogRef.close();
+  close(status?: boolean): void {
+    if(status) {
+      this.dialogRef.close('true');
+    } 
+    else {
+      this.dialogRef.close();
+    }
   }
 }

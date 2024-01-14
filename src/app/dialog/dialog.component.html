@@ -4,6 +4,6 @@
   <div mat-dialog-actions *ngFor="let button of data.button">
     <button *ngIf="(button === 'close')" mat-stroked-button (click)="close()">Close</button>
     <button *ngIf="(button === 'login')" mat-raised-button color="primary" (click)="close()" routerLink="/login" cdkFocusInitial>Login</button>
-    <button *ngIf="(button === 'confirm')" mat-raised-button color="primary" (click)="close()" cdkFocusInitial>Confirm</button>
+    <button *ngIf="(button === 'confirm')" mat-raised-button color="primary" (click)="close(true)" cdkFocusInitial>Confirm</button>
   </div>
 </div>
