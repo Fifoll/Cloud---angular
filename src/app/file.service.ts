@@ -19,4 +19,8 @@ export class FileService {
     return this.http.get<File[]>(this.apiUrl, { headers: this.headers });
   }
 
+  deleteFileById(id: number): Observable<File> {
+    return this.http.delete<File>(`${this.apiUrl}/${id}`, { headers: this.headers });
+  }
+
 }

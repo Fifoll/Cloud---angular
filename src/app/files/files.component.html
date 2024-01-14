@@ -19,20 +19,20 @@
                     <span>{{ getExtension(file.name) }}</span>
                 </div>
             </mat-card-content>
+            <mat-menu #fileMenu="matMenu">
+                <button mat-button class="file__button">
+                    Show details
+                    <mat-icon>more</mat-icon>
+                </button>
+                <button mat-button class="file__button">
+                    Edit filename
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-button (click)="deleteFile(file.file_id)" color="warn" class="file__button">
+                    Delete file
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </mat-menu>
         </mat-card>
-        <mat-menu #fileMenu="matMenu">
-            <button mat-button class="file__button">
-                Show details
-                <mat-icon>more</mat-icon>
-            </button>
-            <button mat-button class="file__button">
-                Edit filename
-                <mat-icon>edit</mat-icon>
-            </button>
-            <button mat-button color="warn" class="file__button">
-                Delete file
-                <mat-icon>delete</mat-icon>
-            </button>
-        </mat-menu>
     </div>
 </app-panel>
