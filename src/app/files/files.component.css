@@ -1,11 +1,11 @@
 .files {
     padding-top: 1.6rem;
     display: flex;
-    gap: 2.4rem;
     flex-wrap: wrap;
 }
 .file {
-    width: 16rem;
+    flex: 0 0 50%;
+    max-width: 50%;
     background-color: #ebebeb50;
     transition: .3s;
 }
@@ -13,8 +13,9 @@
     background-color: #ebebeb;
 }
 .file__header {
+    flex-direction: column;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
 }
 .file__button {
     display: block;
@@ -29,4 +30,17 @@
     align-items: center;
     font-size: 3.2rem;
     background-color: #fff;
+}
+@media (min-width: 768px) {
+    .files {
+        gap: 6%;
+    }
+    .file {
+        flex: 0 0 20%;
+    }
+    .file__header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
 }
