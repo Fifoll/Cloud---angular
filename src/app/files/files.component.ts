@@ -79,6 +79,32 @@ export class FilesComponent implements OnInit {
     });
   }
 
+  showFileDetails(id: number) {
+    this.fileService.getFileById(id).subscribe({
+      next: (data: any) => {
+        this.openInfoDialog(data.data);
+      },
+      error: err => console.log(err)
+    });
+  }
+
+  openInfoDialog(file: File) {
+    const tpl = `
+    <ul>
+      <li>File id: <b>${file.file_id}</b></li>
+      <li>File name: <b>${file.name}</b></li>
+      <li>Extension: <b>${this.getExtension(file.path)}</b></li>
+      <li>Link to file: <a href="${file.path}" target="_blank">${file.path}</a></li>
+    </ul>
+    `;
+    this.dialog.open(DialogComponent, {
+      data: {
+        heading: 'File details',
+        body: tpl,
+        button: ['close']
+      },
+    });
+  }
 
 
 }

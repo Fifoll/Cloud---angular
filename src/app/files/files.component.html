@@ -20,7 +20,7 @@
                 </div>
             </mat-card-content>
             <mat-menu #fileMenu="matMenu">
-                <button mat-button class="file__button">
+                <button mat-button (click)="showFileDetails(file.file_id)" class="file__button">
                     Show details
                     <mat-icon>more</mat-icon>
                 </button>
