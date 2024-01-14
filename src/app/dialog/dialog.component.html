@@ -1,6 +1,9 @@
 <h1 mat-dialog-title *ngIf="data.heading">{{data.heading}}</h1>
 <div mat-dialog-content *ngIf="data.body">{{data.body}}</div>
-<div mat-dialog-actions *ngIf="data.button">
-  <button *ngIf="(data.button === 'close')" mat-stroked-button (click)="close()">Close</button>
-  <button *ngIf="(data.button === 'login')" mat-raised-button color="primary" (click)="close()" routerLink="/login" cdkFocusInitial>Login</button>
+<div class="buttons">
+  <div mat-dialog-actions *ngFor="let button of data.button">
+    <button *ngIf="(button === 'close')" mat-stroked-button (click)="close()">Close</button>
+    <button *ngIf="(button === 'login')" mat-raised-button color="primary" (click)="close()" routerLink="/login" cdkFocusInitial>Login</button>
+    <button *ngIf="(button === 'confirm')" mat-raised-button color="primary" (click)="close()" cdkFocusInitial>Confirm</button>
+  </div>
 </div>
