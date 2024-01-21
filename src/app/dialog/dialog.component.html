@@ -1,9 +1,17 @@
 <h1 mat-dialog-title *ngIf="data.heading">{{data.heading}}</h1>
 <div mat-dialog-content *ngIf="data.body" [innerHTML]="getHTML(data.body)"></div>
+<form class="edit__form" *ngIf="data.editName" [formGroup]="editForm">
+  <mat-form-field class="edit__input">
+    <mat-label>File name</mat-label>
+    <input formControlName="name" matInput>
+    <mat-error>Invalid file name. Use only letters, numbers, underscores, and dashes.</mat-error>
+  </mat-form-field>
+</form>
 <div class="buttons">
   <div mat-dialog-actions *ngFor="let button of data.button">
     <button *ngIf="(button === 'close')" mat-stroked-button (click)="close()">Close</button>
     <button *ngIf="(button === 'login')" mat-raised-button color="primary" (click)="close()" routerLink="/login" cdkFocusInitial>Login</button>
-    <button *ngIf="(button === 'confirm')" mat-raised-button color="primary" (click)="close(true)" cdkFocusInitial>Confirm</button>
+    <button *ngIf="(button === 'confirm' && !data.editName)" mat-raised-button color="primary" (click)="close(true)" cdkFocusInitial>Confirm</button>
+    <button *ngIf="(button === 'confirm' && data.editName)" mat-raised-button [disabled]="!editForm.valid || editForm.get('name')?.value === fileName || !editForm.get('name')" color="primary" (click)="sendData()" cdkFocusInitial>Confirm</button>
   </div>
 </div>
