@@ -106,5 +106,40 @@ export class FilesComponent implements OnInit {
     });
   }
 
+  async editFileName(file: File): Promise<void> {
+    const namePassed: string | null = await this.openEditDialog(file);
+
+    if(namePassed) {
+      this.fileService.editFileName(file.file_id, namePassed).subscribe({
+        next: (data: any) => {
+          this.getFiles();
+        },
+        error: err => console.log(err)
+      })
+    }
+  }
+
+  async openEditDialog(file: File): Promise<string | null> {
+    return new Promise<string | null>(resolve => {
+      const dialogRef = this.dialog.open(DialogComponent, {
+        data: {
+          heading: `Edit file ${file.name}`,
+          body: '',
+          button: ['confirm', 'close'],
+          editName: file.name
+        },
+      });
+  
+      dialogRef.afterClosed().subscribe(result => {
+        console.log(result);
+        if (result) {
+          resolve(result);
+        } else {
+          resolve(null);
+        }
+      });
+    });
+  }
+
 
 }

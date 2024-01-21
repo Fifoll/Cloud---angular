@@ -27,4 +27,11 @@ export class FileService {
     return this.http.get<File>(`${this.apiUrl}/${id}`, { headers: this.headers });
   }
 
+  editFileName(id: number, name: string): Observable<File> {
+    const body = {
+      "name": name
+    };
+    return this.http.put<File>(`${this.apiUrl}/${id}`, body, { headers: this.headers });
+  }
+
 }
