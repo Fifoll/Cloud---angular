@@ -1,5 +1,4 @@
-<app-panel heading="Tools" icon="settings">
-</app-panel>
+<app-tools (refreshData)="getFiles()"></app-tools>
 <app-panel heading="Your files" icon="cloud">
     <div class="files">
         <mat-card class="file" *ngFor="let file of files">

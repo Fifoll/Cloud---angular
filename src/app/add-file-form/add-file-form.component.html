@@ -1,0 +1,14 @@
+<form class="add_form" [formGroup]="addForm" (ngSubmit)="addNewFile()">
+    <mat-form-field class="add_field --pointer">
+        <mat-label>Import file</mat-label>
+        <input type="file" hidden #f_input (change)="filesOnChange(f_input.files)"/>
+        <input type="text" readonly matInput (click)="f_input.click()" formControlName="file"/>
+        <mat-icon matPrefix (click)="f_input.click()">attach_file</mat-icon>
+    </mat-form-field>
+    <mat-form-field class="add_field">
+        <mat-label>File name</mat-label>
+        <input type="text" matInput formControlName="name"/>
+    </mat-form-field>
+    <button type="submit" mat-raised-button color="primary">Submit</button>
+    <mat-error *ngIf="nameAlreadyExists">File with this name already exists in database</mat-error>
+</form>
