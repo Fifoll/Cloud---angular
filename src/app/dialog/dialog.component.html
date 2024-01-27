@@ -1,7 +1,8 @@
 <h1 mat-dialog-title *ngIf="data.heading">{{data.heading}}</h1>
 <div mat-dialog-content *ngIf="data.body" [innerHTML]="getHTML(data.body)"></div>
+<app-add-file-form *ngIf="data.addFile" (submitEvent)="close($event)"></app-add-file-form>
 <form class="edit__form" *ngIf="data.editName" [formGroup]="editForm">
-  <mat-form-field class="edit__input">
+  <mat-form-field class="edit__input" style="width: 100%;">
     <mat-label>File name</mat-label>
     <input formControlName="name" matInput>
     <mat-error>Invalid file name. Use only letters, numbers, underscores, and dashes.</mat-error>
