@@ -34,4 +34,8 @@ export class FileService {
     return this.http.put<File>(`${this.apiUrl}/${id}`, body, { headers: this.headers });
   }
 
+  addFile(formData: FormData): Observable<File> {
+    return this.http.post<File>(`${this.apiUrl}`, formData, { headers: this.headers });
+  }
+
 }
