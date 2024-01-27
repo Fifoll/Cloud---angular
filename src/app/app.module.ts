@@ -24,6 +24,8 @@ import { HomeComponent } from './home/home.component';
 import { PanelComponent } from './panel/panel.component';
 import { FilesComponent } from './files/files.component';
 import { TruncatePipe } from './truncate.pipe';
+import { ToolsComponent } from './tools/tools.component';
+import { AddFileFormComponent } from './add-file-form/add-file-form.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { TruncatePipe } from './truncate.pipe';
     HomeComponent,
     PanelComponent,
     FilesComponent,
-    TruncatePipe
+    TruncatePipe,
+    ToolsComponent,
+    AddFileFormComponent
   ],
   imports: [
     BrowserModule,
