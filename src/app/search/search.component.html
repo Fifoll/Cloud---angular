@@ -1,12 +1,9 @@
-<section class="search__modal">
-    <div class="search__wrapper">
-        <mat-form-field class="search__input">
-            <mat-label>Search</mat-label>
-            <input matInput placeholder="File name">
-            <mat-icon matSuffix class="icon-search">search</mat-icon>
-        </mat-form-field>
-        <button mat-icon-button (click)="closeSearchModal()">
-            <mat-icon>close</mat-icon>
+<form [formGroup]="searchForm" (ngSubmit)="search()">
+    <mat-form-field class="search__input">
+        <mat-label>Search</mat-label>
+        <input matInput placeholder="File name" formControlName="query">
+        <button matSuffix mat-icon-button>
+            <mat-icon>search</mat-icon>
         </button>
-    </div>
-</section>
+    </mat-form-field>
+</form>

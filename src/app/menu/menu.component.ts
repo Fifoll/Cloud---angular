@@ -8,7 +8,6 @@ import { AuthService } from '../auth.service';
 })
 export class MenuComponent {
 
-  searchFlag = false;
 
   constructor(private authService: AuthService){}
 
@@ -16,9 +15,6 @@ export class MenuComponent {
     return this.authService.isLoggedIn();
   }
 
-  toggleSearch() {
-    this.searchFlag = !this.searchFlag;
-  }
 
   logout() {
     this.authService.logout();

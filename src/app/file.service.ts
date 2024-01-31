@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
@@ -15,8 +15,12 @@ export class FileService {
 
   constructor(private http : HttpClient, private authService: AuthService) { }
 
-  getAllFiles(): Observable<File[]> {
-    return this.http.get<File[]>(this.apiUrl, { headers: this.headers });
+  getAllFiles(query?: string): Observable<File[]> {
+    let params = new HttpParams();
+    if (query) {
+      params = params.set('search', query);
+    }
+    return this.http.get<File[]>(this.apiUrl, { headers: this.headers, params });
   }
 
   deleteFileById(id: number): Observable<File> {

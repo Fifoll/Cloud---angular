@@ -2,9 +2,6 @@
     <span class="logo" routerLink="/">SkyArchive</span>
     <span class="spacer"></span>
     <div class="buttons-wrapper">
-        <button class="search-btn" mat-mini-fab color="accent" (click)="toggleSearch()" *ngIf="isLoggedIn()">
-            <mat-icon>search</mat-icon>
-        </button>
         <button class="login-btn" [matMenuTriggerFor]="login" mat-mini-fab color="primary">
             <mat-icon>person</mat-icon>
         </button>
@@ -34,4 +31,3 @@
         </a>
     </mat-menu>
 </mat-toolbar>
-<app-search (closeSearchModalEmitter)="toggleSearch()" *ngIf="searchFlag"></app-search>
