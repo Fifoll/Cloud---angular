@@ -12,8 +12,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class DialogComponent {
   fileName: string | undefined = this.getFileNameWithoutExtension(this.data.editName);
   editForm = new FormGroup({
-    name: new FormControl(this.fileName, [ Validators.required, Validators.pattern(/^[a-zA-Z0-9_-]+$/),
-    ]),
+    name: new FormControl(this.fileName, [ Validators.required ]),
   });
 
   constructor(
