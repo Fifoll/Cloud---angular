@@ -3,6 +3,6 @@
         <button mat-fab color="primary" (click)="openAddDialog()">
             <mat-icon>add</mat-icon>
         </button>
-        <app-search></app-search>
+        <app-search (searchFilter)="toolsFilterFiles($event)"></app-search>
     </div>
 </app-panel>

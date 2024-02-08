@@ -47,8 +47,8 @@ export class FilesComponent implements OnInit {
     }
   }
 
-  getFiles() {
-    this.fileService.getAllFiles().subscribe({
+  getFiles(query?: string) {
+    this.fileService.getAllFiles(query).subscribe({
       next: (data: any) => {
         if (data.success === true) {
           const files: File[] = data.data;
@@ -139,6 +139,10 @@ export class FilesComponent implements OnInit {
         }
       });
     });
+  }
+
+  replaceFiles(query: string) {
+    console.log(query);
   }
 
 

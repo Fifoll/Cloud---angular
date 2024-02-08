@@ -1,4 +1,4 @@
-<app-tools (refreshData)="getFiles()"></app-tools>
+<app-tools (refreshData)="getFiles($event)"></app-tools>
 <app-panel heading="Your files" icon="cloud">
     <div class="files">
         <mat-card class="file" *ngFor="let file of files">

@@ -9,6 +9,7 @@ import { FileService } from '../file.service';
 })
 export class SearchComponent {
 
+  @Output() searchFilter = new EventEmitter<string | null>();
   searchForm = new FormGroup({
     query: new FormControl(''),
   });
@@ -17,14 +18,6 @@ export class SearchComponent {
 
   search() {
     const query = this.searchForm.getRawValue().query;
-    if(query) {
-      this.fileServive.getAllFiles(query).subscribe({
-        next: data => console.log(data), // todo
-        error: err => console.log(err)
-      })
-    }
-    else {
-      // todo
-    }
+    this.searchFilter.emit(query);
   }
 }

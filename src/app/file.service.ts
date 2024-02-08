@@ -15,12 +15,12 @@ export class FileService {
 
   constructor(private http : HttpClient, private authService: AuthService) { }
 
-  getAllFiles(query?: string): Observable<File[]> {
+  getAllFiles(query?: string): Observable<any> {
     let params = new HttpParams();
     if (query) {
       params = params.set('search', query);
     }
-    return this.http.get<File[]>(this.apiUrl, { headers: this.headers, params });
+    return this.http.get<any>(this.apiUrl, { headers: this.headers, params });
   }
 
   deleteFileById(id: number): Observable<File> {

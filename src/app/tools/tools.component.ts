@@ -31,4 +31,8 @@ export class ToolsComponent {
     });
   }
 
+  toolsFilterFiles(query: string | null) {
+    this.refreshData.emit(query);
+  }
+
 }
