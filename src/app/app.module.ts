@@ -19,6 +19,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import {MatSelectModule} from '@angular/material/select';
 import { DialogComponent } from './dialog/dialog.component';
 import { HomeComponent } from './home/home.component';
 import { PanelComponent } from './panel/panel.component';
@@ -26,6 +27,7 @@ import { FilesComponent } from './files/files.component';
 import { TruncatePipe } from './truncate.pipe';
 import { ToolsComponent } from './tools/tools.component';
 import { AddFileFormComponent } from './add-file-form/add-file-form.component';
+import { SortComponent } from './sort/sort.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,8 @@ import { AddFileFormComponent } from './add-file-form/add-file-form.component';
     FilesComponent,
     TruncatePipe,
     ToolsComponent,
-    AddFileFormComponent
+    AddFileFormComponent,
+    SortComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +59,8 @@ import { AddFileFormComponent } from './add-file-form/add-file-form.component';
     MatCardModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

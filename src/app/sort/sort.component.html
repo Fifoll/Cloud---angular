@@ -1,0 +1,13 @@
+<form [formGroup]="sortForm">
+    <button mat-icon-button *ngIf="selectedValue" (click)="changeOrder()">
+        <mat-icon *ngIf="order">keyboard_arrow_up</mat-icon>
+        <mat-icon *ngIf="!order">keyboard_arrow_down</mat-icon>
+    </button>
+    <mat-form-field>
+        <mat-label>Sort</mat-label>
+        <mat-select formControlName="sort" (selectionChange)="sortFiles($event)">
+            <mat-option value="name">Name</mat-option>
+            <mat-option value="date">Date</mat-option>
+        </mat-select>
+    </mat-form-field>
+</form>
