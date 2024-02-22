@@ -28,11 +28,9 @@ export class SortComponent {
   }
 
   emitEvent() {
-    const options = {
+    this.sortFilesEvent.emit({
       field: this.selectedValue,
       order: this.order
-    };
-    this.sortFilesEvent.emit(options);
-    console.log(options);
+    });
   }
 }
