@@ -12,7 +12,10 @@ export class ToolsComponent {
 
   @Output() refreshData = new EventEmitter();
 
-  constructor(public dialog: MatDialog) {}
+  searchinput: string | null = null;
+  sortInput: object | null = {};
+
+  constructor(public dialog: MatDialog) { }
 
   openAddDialog(): Promise<string | null> {
     return new Promise<string | null>(resolve => {
@@ -23,7 +26,7 @@ export class ToolsComponent {
           addFile: true
         },
       });
-  
+
       dialogRef.afterClosed().subscribe(result => {
         this.refreshData.emit();
         resolve(result || null);
@@ -32,7 +35,20 @@ export class ToolsComponent {
   }
 
   toolsFilterFiles(query: string | null) {
-    this.refreshData.emit(query);
+    this.searchinput = query;
+    this.modifyFiles();
+  }
+
+  toolsSortFiles(options: object | null) {
+    this.sortInput = options;
+    this.modifyFiles();
+  }
+
+  modifyFiles() {
+    this.refreshData.emit({
+      search: this.searchinput,
+      sort: this.sortInput
+    });
   }
 
 }

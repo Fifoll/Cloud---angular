@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
+import { SortOptions } from './sort-options';
 
 @Injectable({
   providedIn: 'root'
@@ -15,10 +16,13 @@ export class FileService {
 
   constructor(private http : HttpClient, private authService: AuthService) { }
 
-  getAllFiles(query?: string): Observable<any> {
+  getAllFiles(query?: string, sortOptions?: SortOptions): Observable<any> {
     let params = new HttpParams();
     if (query) {
       params = params.set('search', query);
+    }
+    if(sortOptions) {
+      params = params.set('sort', `${sortOptions.field},${sortOptions.order ? 'ASC' : 'DESC'}`);
     }
     return this.http.get<any>(this.apiUrl, { headers: this.headers, params });
   }

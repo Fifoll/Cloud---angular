@@ -47,8 +47,14 @@ export class FilesComponent implements OnInit {
     }
   }
 
-  getFiles(query?: string) {
-    this.fileService.getAllFiles(query).subscribe({
+  getFiles(options?: any) {
+    let query;
+    let sortOptions;
+    if(options) {
+      query = options.search ? options.search : null;
+      sortOptions = Object.keys(options.sort).length !== 0 ? options.sort : null;
+    }
+    this.fileService.getAllFiles(query, sortOptions).subscribe({
       next: (data: any) => {
         if (data.success === true) {
           const files: File[] = data.data;
