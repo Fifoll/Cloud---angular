@@ -37,7 +37,9 @@ export class LoginFormComponent implements OnInit {
       next: (data: any) => {
         if (data.status === 200) {
           this.authService.setToken(data.data);
-          this.router.navigate(['/']);
+          this.router.navigate(['/']).then(() => {
+            window.location.reload();
+          });
         }
       },
       error: (err) => {
