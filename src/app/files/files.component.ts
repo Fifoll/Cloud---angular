@@ -147,8 +147,21 @@ export class FilesComponent implements OnInit {
     });
   }
 
-  replaceFiles(query: string) {
-    console.log(query);
+  downloadFile(id: number, filename: string) {
+    this.fileService.downloadFile(id).subscribe({
+      next: (data: Blob) => {
+        const blob = new Blob([data], { type: 'application/octet-stream' });
+        const objectUrl = window.URL.createObjectURL(blob);
+
+        const link = document.createElement('a');
+        link.href = objectUrl;
+        link.download = filename;
+        link.click();
+
+        window.URL.revokeObjectURL(objectUrl);
+      },
+      error: err => console.error(err)
+    });
   }
 
 

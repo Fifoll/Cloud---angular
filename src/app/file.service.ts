@@ -14,14 +14,14 @@ export class FileService {
     'Authorization': `Bearer ${this.authService.getToken()}`
   });
 
-  constructor(private http : HttpClient, private authService: AuthService) { }
+  constructor(private http: HttpClient, private authService: AuthService) { }
 
   getAllFiles(query?: string, sortOptions?: SortOptions): Observable<any> {
     let params = new HttpParams();
     if (query) {
       params = params.set('search', query);
     }
-    if(sortOptions) {
+    if (sortOptions) {
       params = params.set('sort', `${sortOptions.field},${sortOptions.order ? 'ASC' : 'DESC'}`);
     }
     return this.http.get<any>(this.apiUrl, { headers: this.headers, params });
@@ -44,6 +44,10 @@ export class FileService {
 
   addFile(formData: FormData): Observable<File> {
     return this.http.post<File>(`${this.apiUrl}`, formData, { headers: this.headers });
+  }
+
+  downloadFile(id: number): Observable<Blob> {
+    return this.http.get(`${this.apiUrl}/download/${id}`, { headers: this.headers, responseType: 'blob'});
   }
 
 }

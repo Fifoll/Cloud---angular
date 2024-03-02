@@ -5,9 +5,9 @@
             <mat-card-header class="file__header">
                 <mat-card-title>{{ file.name| truncate: 9: '...'}}</mat-card-title>
                 <div>
-                    <a href="http://localhost/ng-files/dummy_300x300_ffffff_3678e2.png" mat-icon-button download>
+                    <button mat-icon-button download (click)="downloadFile(file.file_id, file.name)">
                         <mat-icon>download</mat-icon>
-                    </a>
+                    </button>
                     <button mat-icon-button [matMenuTriggerFor]="fileMenu">
                         <mat-icon>more_vert</mat-icon>
                     </button>
