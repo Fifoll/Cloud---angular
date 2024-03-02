@@ -21,13 +21,21 @@
         </button>
     </mat-menu>
     <mat-menu #socialMenu="matMenu">
-        <a mat-menu-item href="https://github.com/Fifoll">
-            <mat-icon>people</mat-icon>
+        <button mat-menu-item [matMenuTriggerFor]="vertebrates">
+            <mat-icon>code</mat-icon>
             <span>Project github</span>
-        </a>
+        </button>
         <a mat-menu-item href="https://www.linkedin.com/in/filip-k%C4%85kol-7a3303208/">
             <mat-icon>linkedin</mat-icon>
             <span>Linkedin profile</span>
+        </a>
+    </mat-menu>
+    <mat-menu #vertebrates="matMenu">
+        <a mat-menu-item href="https://github.com/Fifoll/Cloud---angular">
+            <span>Angular project</span>
+        </a>
+        <a mat-menu-item href="https://github.com/Fifoll/Cloud-nodeJs">
+            <span>NodeJs project</span>
         </a>
     </mat-menu>
 </mat-toolbar>
