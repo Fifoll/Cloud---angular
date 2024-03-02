@@ -8,6 +8,7 @@
     max-width: 50%;
     background-color: #ebebeb50;
     transition: .3s;
+    margin-bottom: 1.6rem;
 }
 .file:hover {
     background-color: #ebebeb;
