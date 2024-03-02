@@ -12,6 +12,7 @@ import { DialogComponent } from '../dialog/dialog.component';
 export class FilesComponent implements OnInit {
 
   files: File[] = [];
+  listOptions = {};
 
   constructor(private fileService: FileService, public dialog: MatDialog) { }
 
@@ -40,7 +41,7 @@ export class FilesComponent implements OnInit {
     if(confirmed) {
       this.fileService.deleteFileById(id).subscribe({
         next: (data: any) => {
-          this.getFiles();
+          this.getFiles(this.listOptions);
         },
         error: err => console.log(err)
       })
@@ -48,6 +49,7 @@ export class FilesComponent implements OnInit {
   }
 
   getFiles(options?: any) {
+    this.listOptions = options;
     let query;
     let sortOptions;
     if(options) {
@@ -118,7 +120,7 @@ export class FilesComponent implements OnInit {
     if(namePassed) {
       this.fileService.editFileName(file.file_id, namePassed).subscribe({
         next: (data: any) => {
-          this.getFiles();
+          this.getFiles(this.listOptions);
         },
         error: err => console.log(err)
       })
