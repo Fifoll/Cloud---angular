@@ -9,7 +9,8 @@ import { SortOptions } from './sort-options';
 })
 export class FileService {
 
-  private apiUrl = 'http://localhost:3000/api/file';
+  // private apiUrl = 'http://localhost:3000/api/file';
+  private apiUrl = 'https://srv65135.seohost.com.pl/api/file';
   private headers = new HttpHeaders({
     'Authorization': `Bearer ${this.authService.getToken()}`
   });
