@@ -23,8 +23,8 @@ export class LoginFormComponent implements OnInit {
   }
 
   loginForm = new FormGroup({
-    email: new FormControl('test5@test.pl', { nonNullable: true, validators: [Validators.required, Validators.email] }),
-    password: new FormControl('password', { nonNullable: true, validators: [Validators.required] })
+    email: new FormControl('', { nonNullable: true, validators: [Validators.required, Validators.email] }),
+    password: new FormControl('', { nonNullable: true, validators: [Validators.required] })
   });
 
   login() {
